@@ -3,5 +3,60 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   cities = City.create([( name: 'Chicago' ), ( name: 'Copenhagen' )])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+  best = User.create(
+    first_name: 'George',
+    last_name: 'Best',
+    nick_name: 'Georgy',
+    email: 'george.best@whatever.de',
+    role: 'developer',
+    password: 'invision')
+
+  podolski = User.create(
+    first_name: 'Lucas',
+    last_name: 'Podolski',
+    nick_name: 'Poldi',
+    email: 'lucas.podolski@whatever.de',
+    role: 'developer',
+    password: 'invision'
+  )
+
+  rusty = User.create(
+    first_name: 'Robert Charles',
+    last_name: 'Rian',
+    nick_name: 'Rusty',
+    email: 'rusty@whatever.de',
+    role: 'developer',
+    password: 'invision'
+  )
+
+  ocean = User.create(
+    first_name: 'Daniel',
+    last_name: 'Ocean',
+    nick_name: 'Danny',
+    email: 'danny.ocean@oceans11.de',
+    role: 'developer',
+    password: 'invision'
+  )
+
+  team_ocean = Team.new(
+    name: 'Team Ocean',
+    description: 'Guys who like to steel money'
+  )
+
+  team_forward = Team.new(
+    name: 'Team Goalies',
+    description: 'Guys shooting the keeper into the goal'
+  )
+
+  team_forward.users << best
+  team_forward.users << podolski
+
+  team_ocean.users << ocean
+  team_ocean.users << rusty
+
+  team_forward.save!
+  team_ocean.save!
+
+
