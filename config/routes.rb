@@ -2,9 +2,10 @@ Devcon3Teams::Application.routes.draw do
   root 'users#index'
   devise_for :users
 
-  # resources :users do
-  #   :photos, only: [:show]
-  # end
+  resources :users do
+    resources :photos
+  end
+  resources :photos
   resources :teams
   resources :topics
   resources :repositories, only: [:new, :create, :destroy]
