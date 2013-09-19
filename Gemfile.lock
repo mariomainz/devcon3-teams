@@ -47,6 +47,7 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.1)
+    gravatar-ultimate (1.0.3)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -139,6 +140,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise
+  gravatar-ultimate
   haml
   jbuilder (~> 1.2)
   jquery-rails
