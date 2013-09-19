@@ -90,3 +90,24 @@
     user: ocean,
     topic: topic_benedict
   )
+
+  Status.create(
+    content: 'As usual: In prison.',
+    user: ocean
+  )
+
+  Status.create(
+    content: 'It\'s Danny\'s fault that I sit next to him in prison.',
+    user: rusty
+  )
+
+  Status.create(
+    content: 'I love Hennes',
+    user: podolski
+  )
+
+  Status.create(
+    content: 'I spent a lot of money on booze, birds and fast cars. ' +
+             'The rest I just squandered.',
+    user: best
+  )
