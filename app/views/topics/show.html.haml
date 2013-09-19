@@ -1,0 +1,6 @@
+%h1= "#{@topic.title}"
+.topic-content
+	"#{@topic.content}"
+	.responses
+		- @responses.each do |response|
+			%p= response.content

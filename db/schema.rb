@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20130919135706) do
     t.integer  "team_id"
   end
 
+  create_table "status", force: true do |t|
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "teams", force: true do |t|
     t.string   "name"
     t.string   "description"
