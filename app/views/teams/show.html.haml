@@ -5,7 +5,8 @@
 %h5="Members:"
 - @team.users.each do |user|
   %u
-    %li= "#{user.first_name} #{user.last_name}"
+    %li
+      = link_to "#{user.first_name} #{user.last_name}", user_path(user.id), class: "btn btn-link"
 
 %h5="Repositories:"
 - @team.repositories.each do |repository|
