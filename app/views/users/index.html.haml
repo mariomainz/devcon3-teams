@@ -1,3 +1,9 @@
-%ul
 - @users.each do |user|
-  %li= user.email
+  = link_to show_user_path(user.id) do
+    .user_card.pull-left
+      .placeholder
+      = link_to user.email, show_user_path(user.id)
+      %br
+      = link_to "edit", edit_user_path(user.id)
+  
+  

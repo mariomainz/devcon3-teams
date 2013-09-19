@@ -7,6 +7,8 @@ Devcon3Teams::Application.routes.draw do
   resources :topics
   resources :repositories, only: [:new, :create]
   
+  get "/user/:id" => "users#show",  as: :show_user
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
