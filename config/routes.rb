@@ -3,7 +3,7 @@ Devcon3Teams::Application.routes.draw do
   devise_for :users
 
   resources :users do
-    :photos
+    resources :photos
   end
   resources :photos
   resources :teams
