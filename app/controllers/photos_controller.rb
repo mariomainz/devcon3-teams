@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
 
-  def show
-    Gravatar.new(user.email)
+  def index
+    @photo = Gravatar.new('stoecki@der-ball-ist-rund.net')
   end
 
   private
