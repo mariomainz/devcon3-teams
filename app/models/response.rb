@@ -1,2 +1,2 @@
-class Response < ActiveRecord::Base
+class Response < Post
 end

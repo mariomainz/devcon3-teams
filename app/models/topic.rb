@@ -1,2 +1,2 @@
-class Topic < ActiveRecord::Base
+class Topic < Post
 end
