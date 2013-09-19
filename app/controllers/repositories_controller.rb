@@ -5,10 +5,12 @@ class RepositoriesController < ApplicationController
 
   def create
     @repository = Repository.create(repository_params)
+    redirect_to root_path
   end
 
   def destroy
     Repository.destroy(params[:id])
+    redirect_to root_path
   end
 
   private

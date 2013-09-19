@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130919203914) do
+ActiveRecord::Schema.define(version: 20130919161730) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20130919203914) do
     t.integer  "team_id"
   end
 
-  create_table "status", force: true do |t|
+  create_table "statuses", force: true do |t|
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
