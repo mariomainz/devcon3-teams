@@ -16,4 +16,5 @@
 # end
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'Status', 'Status'
+  inflect.irregular 'status', 'status'
 end

@@ -2,11 +2,12 @@ Devcon3Teams::Application.routes.draw do
   root 'users#index'
   devise_for :users
 
-  resources :users
+  # resources :users do
+  #   :photos, only: [:show]
+  # end
   resources :teams
   resources :topics
-  resources :repositories, only: [:new, :create]
-  
+  resources :repositories, only: [:new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
