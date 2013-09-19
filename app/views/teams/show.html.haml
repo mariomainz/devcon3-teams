@@ -5,7 +5,7 @@
 %h5="Members:"
 - @team.users.each do |user|
   %u
-    %li= "#{user.first_name} #{user.last_name}"
+    %li= link_to "#{user.first_name} #{user.last_name}", show_user_path(user.id)
 
 %h5="Repositories:"
 - @team.repositories.each do |repository|
