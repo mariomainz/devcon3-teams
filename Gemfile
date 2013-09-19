@@ -35,6 +35,9 @@ end
 gem 'haml'
 gem 'devise'
 
+#Twitter Bootstrap
+gem 'bootstrap-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
