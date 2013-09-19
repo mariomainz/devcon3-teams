@@ -1,5 +1,15 @@
-%h1= @team.name
+%h4= @team.name
 
 %p= @team.description
+
+%h5="Members:"
+- @team.users.each do |user|
+  %u
+    %li= "#{user.first_name} #{user.last_name}"
+
+%h5="Repositories:"
+- @team.repositories.each do |repository|
+  %u
+    %li= repository.link
 
 %a.btn{ href: "#" }= "Delete"
