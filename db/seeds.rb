@@ -83,3 +83,10 @@
     user: rusty,
     topic: topic_benedict
   )
+
+  Response.create(
+    content: 'Yea, that\'s true, but to be honest. I hate this guy,' + 
+    ' because his girlfriend is Tess',
+    user: ocean,
+    topic: topic_benedict
+  )
