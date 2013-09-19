@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130919124830) do
+ActiveRecord::Schema.define(version: 20130919131606) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
-    t.string   "content"
+    t.text     "content",    limit: 255
     t.string   "type"
     t.integer  "topic_id"
     t.integer  "user_id"
