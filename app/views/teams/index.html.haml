@@ -1,3 +1,4 @@
 %ul
 - @teams.each do |team|
-  %li= team.name
+  %li
+    = link_to team.name, team_path(team.id), class: "btn btn-link"

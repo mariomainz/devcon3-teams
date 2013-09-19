@@ -5,13 +5,24 @@
 #
 #   cities = City.create([( name: 'Chicago' ), ( name: 'Copenhagen' )])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+  team_ocean = Team.create(
+    name: 'Team Ocean',
+    description: 'Guys who like to steel money'
+  )
+
+  team_forward = Team.create(
+    name: 'Team Goalies',
+    description: 'Guys shooting the keeper into the goal'
+  )
+
   best = User.create(
     first_name: 'George',
     last_name: 'Best',
     nick_name: 'Georgy',
     email: 'george.best@whatever.de',
     role: 'developer',
-    password: 'invision'
+    password: 'invision',
+    teams: [team_forward]
   )
 
   podolski = User.create(
@@ -20,7 +31,8 @@
     nick_name: 'Poldi',
     email: 'lucas.podolski@whatever.de',
     role: 'developer',
-    password: 'invision'
+    password: 'invision',
+    teams: [team_forward]
   )
 
   rusty = User.create(
@@ -29,7 +41,8 @@
     nick_name: 'Rusty',
     email: 'rusty@whatever.de',
     role: 'developer',
-    password: 'invision'
+    password: 'invision',
+    teams: [team_ocean]
   )
 
   ocean = User.create(
@@ -38,27 +51,9 @@
     nick_name: 'Danny',
     email: 'danny.ocean@oceans11.de',
     role: 'developer',
-    password: 'invision'
+    password: 'invision',
+    teams: [team_ocean]
   )
-
-  team_ocean = Team.new(
-    name: 'Team Ocean',
-    description: 'Guys who like to steel money'
-  )
-
-  team_forward = Team.new(
-    name: 'Team Goalies',
-    description: 'Guys shooting the keeper into the goal'
-  )
-
-  team_forward.users << best
-  team_forward.users << podolski
-
-  team_ocean.users << ocean
-  team_ocean.users << rusty
-
-  team_forward.save!
-  team_ocean.save!
 
   topic_lilly = Topic.create(
     title: 'How to play like Lilly Andres',
@@ -89,4 +84,25 @@
     ' because his girlfriend is Tess',
     user: ocean,
     topic: topic_benedict
+  )
+
+  Status.create(
+    content: 'As usual: In prison.',
+    user: ocean
+  )
+
+  Status.create(
+    content: 'It\'s Danny\'s fault that I sit next to him in prison.',
+    user: rusty
+  )
+
+  Status.create(
+    content: 'I love Hennes',
+    user: podolski
+  )
+
+  Status.create(
+    content: 'I spent a lot of money on booze, birds and fast cars. ' +
+             'The rest I just squandered.',
+    user: best
   )

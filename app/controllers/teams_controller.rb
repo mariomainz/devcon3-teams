@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
+    @team = Team.includes(:users, :repositories).find(params[:id])
   end
 
   def delete
