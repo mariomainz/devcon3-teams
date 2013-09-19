@@ -40,10 +40,7 @@ gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
-end
-
-group :test do
-  gem "shoulda-matchers"
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password
