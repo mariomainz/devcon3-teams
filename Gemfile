@@ -35,7 +35,6 @@ end
 gem 'haml'
 gem 'devise'
 
-
 #Twitter Bootstrap
 gem 'bootstrap-sass'
 
