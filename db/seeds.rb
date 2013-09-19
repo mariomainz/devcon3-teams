@@ -11,7 +11,8 @@
     nick_name: 'Georgy',
     email: 'george.best@whatever.de',
     role: 'developer',
-    password: 'invision')
+    password: 'invision'
+  )
 
   podolski = User.create(
     first_name: 'Lucas',
@@ -59,4 +60,33 @@
   team_forward.save!
   team_ocean.save!
 
+  topic_lilly = Topic.create(
+    title: 'How to play like Lilly Andres',
+    content: 'Practise hard',
+    user: podolski
+  )
 
+  Response.create(
+    content: 'But you need also a big bunch of talent!!!',
+    user: best,
+    topic: topic_lilly
+  )
+
+  topic_benedict = Topic.create(
+    title: 'How to cheat Terry Benedict',
+    content: 'Be careful and don\'t let you being caught!',
+    user: ocean
+  )
+
+  Response.create(
+    content: 'But if he gets you, he will destroy your life',
+    user: rusty,
+    topic: topic_benedict
+  )
+
+  Response.create(
+    content: 'Yea, that\'s true, but to be honest. I hate this guy,' + 
+    ' because his girlfriend is Tess',
+    user: ocean,
+    topic: topic_benedict
+  )
