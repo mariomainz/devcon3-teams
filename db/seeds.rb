@@ -5,22 +5,30 @@
 #
 #   cities = City.create([( name: 'Chicago' ), ( name: 'Copenhagen' )])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-  best = User.create(first_name: 'George',last_name: 'Best',nick_name: 'Georgy',email: 'george.best@whatever.de',role: 'developer')
+  best = User.create(
+    first_name: 'George',
+    last_name: 'Best',
+    nick_name: 'Georgy',
+    email: 'george.best@whatever.de',
+    role: 'developer',
+    password: 'invision')
 
   podolski = User.create(
     first_name: 'Lucas',
     last_name: 'Podolski',
     nick_name: 'Poldi',
     email: 'lucas.podolski@whatever.de',
-    role: 'developer'
+    role: 'developer',
+    password: 'invision'
   )
 
   rusty = User.create(
     first_name: 'Robert Charles',
     last_name: 'Rian',
     nick_name: 'Rusty',
-    email: 'lucas.podolski@whatever.de',
-    role: 'developer'
+    email: 'rusty@whatever.de',
+    role: 'developer',
+    password: 'invision'
   )
 
   ocean = User.create(
@@ -28,10 +36,9 @@
     last_name: 'Ocean',
     nick_name: 'Danny',
     email: 'danny.ocean@oceans11.de',
-    role: 'developer'
+    role: 'developer',
+    password: 'invision'
   )
-
-  [podolski, ocean, rusty, best].each { |u| u.save! }
 
   team_ocean = Team.new(
     name: 'Team Ocean',
