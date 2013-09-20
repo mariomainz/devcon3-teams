@@ -22,13 +22,19 @@
       %tr
         %td
         %td.pull-right= link_to "edit", edit_user_path(@user.id) if current_user.id == @user.id
-  #profile_content.span8
+  #profile_content.span9
     .row-fluid 
-      .span11
+      .span12
+        .span2 Latest status: 
+        - stat = @user.status.last
+        .latest_stat= stat.content
+        
+        
         .my_previous_statuses
-          - @user.status.each do |s|
-            = s.content
-            
+          - head, *tail = @user.status.reverse
+          - tail.each do |s|
+            .span3.user_stat
+              = s.content
           
 	  
 
