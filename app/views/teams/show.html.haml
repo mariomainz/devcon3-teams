@@ -8,6 +8,7 @@
   = link_to user_path(user.id) do
     .user_card.pull-left
       %img.placeholder{ src: Gravatar.new(user.email).image_url }
+      %br=user.full_name
       %br=user.email
     
 .clearfix
