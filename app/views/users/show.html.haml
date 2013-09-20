@@ -16,8 +16,13 @@
         %td.grey= 'Joined:'
         %td= @user.created_at.to_formatted_s(:short)
       %tr
-        %td.grey= 'EMail:'
+        %td.grey= 'Email:'
         %td= @user.email
+      %tr
+        %td.grey= 'Team(s):'
+        %td
+          - @user.teams.each do |t|
+            = link_to t.name, team_path(t.id)
       - if current_user.id == @user.id
         %tr
           %td{colspan: 3}
@@ -25,8 +30,6 @@
 
   #profile_content.span9
     .row-fluid 
-      %h5 Member of:
-      %ul= render @user.teams
       %h5 Latest posts:
       %table.table.table-striped.current_user_topics
         %tbody
@@ -36,10 +39,15 @@
           %tr
             %td{width: '70%'}= link_to p.title, topic_path(p.id)
             %td= p.created_at.to_formatted_s(:long)
+      = will_paginate @user_posts, renderer: BootstrapPagination::Rails, param_name: :latest_posts, page_links: false
       
       .my_previous_statuses
-        %h5 Previous statuses:  
-        - head, *tail = @user.status.reverse
-        - tail.each do |s|
-          .span3.user_stat
-            = s.content
+        %h5 Previous statuses:
+        - if @user.status
+          - head, *tail = @user.status.reverse
+          - tail.each do |s|
+            .span3.user_stat
+              = s.content
+        - else
+          No Previous Status'... Please create one. 
+          %br= link_to "Create your first Status here", new_status_path

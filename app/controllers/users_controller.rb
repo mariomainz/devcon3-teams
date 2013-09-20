@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_posts = Post.where(posts: { user_id: @user.id })
+    @user_posts = Post.where(posts: { user_id: @user.id }).paginate(:page => params[:page], :per_page => 10)
   end
   
   def edit
