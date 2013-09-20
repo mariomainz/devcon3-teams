@@ -30,6 +30,7 @@
 
   #profile_content.span9
     .row-fluid 
+      %h5 My Latest Topics:
       %table.table.table-striped.current_user_topics
         %tbody
         %th Title
@@ -38,8 +39,9 @@
           %tr
             %td{:width => "70%"}= link_to p.title, topic_path(p.id)
             %td= link_to p.created_at.to_formatted_s(:long), topic_path(p.id)
-        
+      
       .my_previous_statuses
+        %h5 My Previous Statuses:  
         - head, *tail = @user.status.reverse
         - tail.each do |s|
           .span3.user_stat
