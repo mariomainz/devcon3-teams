@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_posts = Post.where(posts: { user_id: @user.id }).paginate(:page => params[:latest_posts], :per_page => 10)
-    @user_stats = @user.status.paginate(:page => params[:latest_stats], :per_page => 5)
+    @user_stats = @user.status.order('created_at DESC').paginate(:page => params[:latest_stats], :per_page => 5)
   end
   
   def edit

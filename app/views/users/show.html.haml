@@ -30,6 +30,13 @@
 
   #profile_content.span9
     .row-fluid 
+      .span12
+        - if @user.status.count > 0
+          .span2 Latest status: 
+          - stat = @user.status.last
+          .latest_stat= stat.content
+          
+          
       %h5 Latest posts:
       %table.table.table-striped.current_user_topics
         %tbody
@@ -52,4 +59,5 @@
           %h5 Previous statuses:
           %br= "No Previous Status'... Please create one. "
           %br= link_to "Create your first Status here", new_status_path
+      %br    
       = will_paginate @user_stats, renderer: BootstrapPagination::Rails, param_name: :latest_stats, page_links: false
