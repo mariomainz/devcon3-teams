@@ -5,15 +5,18 @@
   %p.post-content= @topic.content
 %h2 Responses
 .responses
-  - @responses.each do |response|
-    %p.post-content= response.content
+  %table.hole-width
+    - @responses.each do |response|
+      %tr.response-box
+        = render response
+
 
 %h2 Enter a New Response
 = form_for :response, url: "/topics/#{@topic.id}/responses" do |f|
   %p
-    = f.label :content
     %br/
     = f.text_area :content
+  = f.hidden_field :user_id, :value => current_user.id
   %p
     = f.submit value: "Send"
 
