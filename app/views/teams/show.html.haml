@@ -1,3 +1,5 @@
+= link_to "\u2190 " + "Team Overview", teams_path
+
 %h3= @team.name
 
 %h5="Members:"
@@ -24,10 +26,10 @@
 
   .tab-content
     .tab-pane.active#topics
-      = "Topics Coming shortly..."
+      = render @topics
 
     .tab-pane#statuses
-      = "Statuses Coming shortly..."
+      = render @statuses
 
     .tab-pane#repositories
       - @team.repositories.each do |repository|
@@ -37,4 +39,4 @@
 
 %br/
 %br/
-%a.btn{ href: "#" }= "Delete"
+%a.btn.btn-danger{ href: "#" }= "Delete"

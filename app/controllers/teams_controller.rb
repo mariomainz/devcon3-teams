@@ -14,7 +14,9 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.includes(:users, :repositories).find(params[:id])
+    @team = Team.includes(:repositories, :users).find(params[:id])
+    @topics = Topic.where(user_id: @team.users.pluck(:id)).order('updated_at DESC').take(5)
+    @statuses = Status.where(user_id: @team.users.pluck(:id)).order('updated_at DESC').take(5)
   end
 
   def delete
