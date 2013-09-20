@@ -25,9 +25,10 @@
   #profile_content.span9
     .row-fluid 
       .span12
-        .span2 Latest status: 
-        - stat = @user.status.last
-        .latest_stat= stat.content
+        - if @user.status.count > 0
+          .span2 Latest status: 
+          - stat = @user.status.last
+          .latest_stat= stat.content
         
         .table
           - @user_posts.each do |p|
