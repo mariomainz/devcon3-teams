@@ -1,19 +1,22 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :set_user, only: [:show, :edit, :update]
   
   def index
     @users = User.all
   end
 
   def show
-    @user_posts = Topic.where(:posts => { :user_id => @user.id })
+    @user = User.find(params[:id])
+    @user_posts = Post.where(posts: { user_id: @user.id })
   end
   
   def edit
+    @user = User.find(params[:id])
   end 
   
   def update
+    @user = User.find(params[:id])
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -26,11 +29,8 @@ class UsersController < ApplicationController
   end
   
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :role, :email, :location)
-    end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :role, :email, :location)
+  end
 end

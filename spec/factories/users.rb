@@ -6,6 +6,7 @@ FactoryGirl.define do
     last_name   { Faker::Name.last_name }
     email       { Faker::Internet.email }
     role        { ['Developer', 'Designer', 'Rockstar'].sample }
+    location    { Faker::Address.city }
     password    'invision'
   end
 end
