@@ -31,12 +31,14 @@
     .row-fluid 
       .span12
         - if @user.status.count > 0
-          .span2 Latest status: 
+          %h5.span2 Latest status: 
           - stat = @user.status.last
-          .latest_stat= stat.content
+          .span10.latest_stat= stat.content
         
       %table.table.table-striped.current_user_topics
         %tbody
+        %th Title
+        %th Created On
         - @user_posts.reverse.each do |p|
           %tr
             %td{:width => "70%"}= link_to p.title, topic_path(p.id)
