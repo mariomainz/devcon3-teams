@@ -5,7 +5,8 @@ Devcon3Teams::Application.routes.draw do
   resources :users
   resources :teams
   resources :topics
-  resources :repositories, only: [:new, :create]
+  resources :statuses
+  resources :repositories, only: [:new, :create, :destroy]
   
   get "/user/:id" => "users#show",  as: :show_user
   get 'overview' => 'home#overview'
