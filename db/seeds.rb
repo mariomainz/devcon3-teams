@@ -1,101 +1,23 @@
-team_ocean = Team.create(
-  name: 'Team Ocean',
-  description: 'Guys who like to steel money'
-)
+teams = FactoryGirl.create_list(:team, 5)
+topics = FactoryGirl.create_list(:topic, (20..100).to_a.sample)
+statuses = FactoryGirl.create_list(:status, (20..100).to_a.sample)
 
-team_forward = Team.create(
-  name: 'Team Goalies',
-  description: 'Guys shooting the keeper into the goal'
-)
+teams.each do |team|
+  users = FactoryGirl.create_list(:user, (1..5).to_a.sample,
+                                  teams: [team])
+end
 
-best = User.create(
-  first_name: 'George',
-  last_name: 'Best',
-  nick_name: 'Georgy',
-  email: 'george.best@whatever.com',
-  role: 'developer',
-  password: 'invision',
-  teams: [team_forward]
-)
+topics.each do |topic|
+  topic.user = User.all.sample
+  topic.save!
+  FactoryGirl.create_list(:response, (1..10).to_a.sample, topic: topic, user: User.all.sample)
+end
 
-podolski = User.create(
-  first_name: 'Lucas',
-  last_name: 'Podolski',
-  nick_name: 'Poldi',
-  email: 'lucas.podolski@whatever.com',
-  role: 'developer',
-  password: 'invision',
-  teams: [team_forward]
-)
+statuses.each do |status|
+  status.user = User.all.sample
+  status.save!
+end
 
-rusty = User.create(
-  first_name: 'Robert Charles',
-  last_name: 'Rian',
-  nick_name: 'Rusty',
-  email: 'rusty@ocean11.com',
-  role: 'developer',
-  password: 'invision',
-  teams: [team_ocean]
-)
-
-ocean = User.create(
-  first_name: 'Daniel',
-  last_name: 'Ocean',
-  nick_name: 'Danny',
-  email: 'danny.ocean@oceans11.com',
-  role: 'developer',
-  password: 'invision',
-  teams: [team_ocean]
-)
-
-topic_lilly = Topic.create(
-  title: 'How to play like Lilly Andres',
-  content: 'Practise hard',
-  user: podolski
-)
-
-Response.create(
-  content: 'But you need also a big bunch of talent!!!',
-  user: best,
-  topic: topic_lilly
-)
-
-topic_benedict = Topic.create(
-  title: 'How to cheat Terry Benedict',
-  content: 'Be careful and don\'t let you being caught!',
-  user: ocean
-)
-
-Response.create(
-  content: 'But if he gets you, he will destroy your life',
-  user: rusty,
-  topic: topic_benedict
-)
-
-Response.create(
-  content: 'Yea, that\'s true, but to be honest. I hate this guy,' + 
-  ' because his girlfriend is Tess',
-  user: ocean,
-  topic: topic_benedict
-)
-
-Status.create(
-  content: 'As usual: In prison.',
-  user: ocean
-)
-
-Status.create(
-  content: 'It\'s Danny\'s fault that I sit next to him in prison.',
-  user: rusty
-)
-
-Status.create(
-  content: 'I love Hennes',
-  user: podolski
-)
-
-Status.create(
-  content: 'I spent a lot of money on booze, birds and fast cars. ' +
-           'The rest I just squandered.',
-  user: best
-)
+first_user = User.all.first
+first_user.email = 'george.best@whatever.com'
+first_user.save!

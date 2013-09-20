@@ -27,19 +27,18 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'haml-rails'
+gem 'devise'
+gem 'bootstrap-sass'
 gem 'gravatar-ultimate'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'factory_girl_rails'
+gem 'faker'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-gem 'haml-rails'
-gem 'devise'
-
-#Twitter Bootstrap
-gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
