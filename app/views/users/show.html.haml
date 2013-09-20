@@ -19,13 +19,14 @@
       %tr
         %td.grey= "Email:"
         %td= @user.email
-      %tr
-        %td{colspan: 3}      
-          .btn= link_to "Update Status", new_status_path
-          .btn= link_to "New Topic", new_topic_path
-      %tr
-        %td{colspan: 3}
-          .pull-right= link_to "edit profile", edit_user_path(@user.id) if current_user.id == @user.id
+      - if current_user.id == @user.id
+        %tr
+          %td{colspan: 3}      
+            .btn= link_to "Update Status", new_status_path
+            .btn= link_to "New Topic", new_topic_path
+        %tr
+          %td{colspan: 3}
+            .pull-right= link_to "edit profile", edit_user_path(@user.id)
 
   #profile_content.span9
     .row-fluid 
