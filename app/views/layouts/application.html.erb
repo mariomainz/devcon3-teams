@@ -14,14 +14,14 @@
       <h3 class="muted"><%= link_to "Injixo Teams", root_path %></h3>
     </div>
     <hr />
-    <div class="span12">
-      <% if current_user.status.count > 0 %>
+    <% if current_user && current_user.status.count > 0 %>
+      <div class="span12 progress">    
         <% stat = current_user.status.last %>
-        <div class="latest_stat">
+        <div class="latest_stat bar">
           <%= stat.content %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 
