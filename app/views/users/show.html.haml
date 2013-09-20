@@ -1,13 +1,14 @@
 .row-fluid
   #user_profile.span3
-    .placeholder
+    %img.placeholder{ src: Gravatar.new(@user.email).image_url }
+
     %br
     %h1= @user.first_name
     %h1= @user.last_name
     %h5= @user.role
     
     %hr
-    
+
     %table
       %tr
         %td.grey{:width => "60px"}= "from:"
