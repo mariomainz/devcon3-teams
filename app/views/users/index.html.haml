@@ -1,6 +1,2 @@
 - @users.each do |user|
-  = link_to show_user_path(user.id) do
-    .user_card.pull-left
-      %img.placeholder{ src: Gravatar.new(user.email).image_url }
-      .name= link_to user.full_name, show_user_path(user.id)
-      .role= link_to user.role, show_user_path(user.id)
+  = render partial: 'user_card', :locals => { user: user }

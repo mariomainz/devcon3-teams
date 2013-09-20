@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_posts = Post.where(:posts => { :user_id => @user.id })
+    @user_posts = Topic.where(:posts => { :user_id => @user.id })
   end
   
   def edit

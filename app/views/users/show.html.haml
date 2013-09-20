@@ -30,12 +30,6 @@
 
   #profile_content.span9
     .row-fluid 
-      .span12
-        - if @user.status.count > 0
-          %h5.span2 Latest status: 
-          - stat = @user.status.last
-          .span10.latest_stat= stat.content
-        
       %table.table.table-striped.current_user_topics
         %tbody
         %th Title
