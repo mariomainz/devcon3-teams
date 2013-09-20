@@ -5,6 +5,7 @@ statuses = FactoryGirl.build_list(:status, (20..100).to_a.sample)
 teams.each do |team|
   users = FactoryGirl.create_list(:user, (1..5).to_a.sample,
                                   teams: [team])
+  FactoryGirl.create(:repository, team: team)
 end
 
 topics.each do |topic|
