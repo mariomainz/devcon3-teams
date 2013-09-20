@@ -6,6 +6,7 @@ Devcon3Teams::Application.routes.draw do
   resources :teams
   resources :topics
   resources :repositories, only: [:new, :create]
+  resources :statuses
   
   get "/user/:id" => "users#show",  as: :show_user
   get 'overview' => 'home#overview'

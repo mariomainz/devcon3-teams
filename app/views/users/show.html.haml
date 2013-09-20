@@ -25,6 +25,10 @@
   #profile_content.span8
     .row-fluid 
       .span11
+        .my_previous_statuses
+          - @user.status.each do |s|
+            = s.content
+            
           
 	  
 
