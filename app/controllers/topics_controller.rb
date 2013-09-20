@@ -1,14 +1,15 @@
 class TopicsController < ApplicationController
-  
+  before_filter :authenticate_user!
+
   def index
     @topics = Topic.all
   end
-  
+
   def show
     @topic = Topic.includes(:responses).find(params[:id])
     @responses = @topic.responses
   end
-  
+
   def new
     @topic = Topic.new
   end
@@ -16,7 +17,7 @@ class TopicsController < ApplicationController
   def edit
     @topic = Topic.find(params[:id])
   end
-  
+
   def create
     @topic = Topic.new(topic_params)
 
@@ -30,7 +31,7 @@ class TopicsController < ApplicationController
       end
     end
   end
-  
+
   def update
     respond_to do |format|
       if @topic.update(topic_params)
@@ -42,7 +43,7 @@ class TopicsController < ApplicationController
       end
     end
   end
-  
+
   private
     def topic_params
       params.require(:topic).permit(:title, :content, :type, :user_id)

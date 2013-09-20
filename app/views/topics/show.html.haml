@@ -1,8 +1,19 @@
 %p= link_to "Back to topics", topics_path
 
 %h1= "#{@topic.title}"
-.post-content
-  %p.post-content= @topic.content
+%table.hole-width.row-fluid.response-box
+  %td.left-response-data
+    %img.timy-gravatar{ src: Gravatar.new(@topic.user.email).image_url }
+    %p.post-author
+      created by
+    %p.post-author
+      = link_to @topic.user.full_name, user_path(@topic.user)
+    %p.post-author
+      = time_ago_in_words(@topic.created_at) + " ago"
+
+  %td.right-response-data.table-alignment-top
+    %p.post-content= @topic.content
+
 %h2 Responses
 .responses
   %table.hole-width.row-fluid
