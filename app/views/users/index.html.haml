@@ -1,7 +1,7 @@
 - @users.each do |user|
   = link_to show_user_path(user.id) do
     .user_card.pull-left
-      .placeholder
+      %img.placeholder{ src: Gravatar.new(user.email).image_url }
       = link_to user.email, show_user_path(user.id)
       %br
       = link_to "edit", edit_user_path(user.id)
