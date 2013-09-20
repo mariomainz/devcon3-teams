@@ -4,7 +4,7 @@
 
     %br
     %h1= @user.first_name
-    %h1= @user.last_name
+    %h1.last_name= @user.last_name
     %h5= @user.role
     
     %hr
@@ -15,7 +15,7 @@
         %td= @user.location
       %tr
         %td.grey= "Joined:"
-        %td= @user.created_at.to_formatted_s(:long)
+        %td= @user.created_at.to_formatted_s(:short)
       %tr
         %td.grey= "Email:"
         %td= @user.email
