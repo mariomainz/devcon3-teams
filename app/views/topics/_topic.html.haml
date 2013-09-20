@@ -1,6 +1,7 @@
 %div
-  = link_to topic.title, topic_path(topic)
+  %span.topic-title= link_to topic.title, topic_path(topic)
   %br
-  created by 
-  = link_to topic.user.full_name, user_path(topic.user)
+  %aside.topic-info
+    = 'created by '
+    = link_to topic.user.full_name, user_path(topic.user)
   %hr
