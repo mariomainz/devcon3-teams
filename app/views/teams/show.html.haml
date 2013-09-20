@@ -5,13 +5,13 @@
 
 .row-fluid
 
-  .span4
+  .span5
     %h5="Members:"
     - @team.users.each do |user|
       = link_to user_path(user.id) do
         = render partial: '/users/user_card', :locals => { user: user }
     
-  .span8
+  .span7
     .tabbable.tabs-right
       %ul.nav.nav-tabs#team_tab_options
         %li.active
