@@ -29,6 +29,10 @@
         - stat = @user.status.last
         .latest_stat= stat.content
         
+        .table
+          - @user_posts.each do |p|
+            %tr
+              %td= p.title
         
         .my_previous_statuses
           - head, *tail = @user.status.reverse
