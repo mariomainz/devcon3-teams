@@ -34,6 +34,7 @@ gem 'gravatar-ultimate'
 gem 'font-awesome-rails'
 gem 'factory_girl_rails'
 gem 'faker'
+gem 'will_paginate-bootstrap'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
