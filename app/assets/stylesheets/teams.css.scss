@@ -1,0 +1,14 @@
+$injixocolor: #059898;
+
+.no-space-fouth-child [class*="span"]:nth-child(4n + 1) {
+ margin-left: 0;
+}
+
+a.team-row {
+  margin-bottom: 15px;
+  background: $injixocolor;
+  height: 90px;
+  text-decoration: none;
+  padding: 15px;
+  color: white;
+}

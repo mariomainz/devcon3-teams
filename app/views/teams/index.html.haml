@@ -1,4 +1,5 @@
-%ul
-- @teams.each do |team|
-  %li
-    = link_to team.name, team_path(team.id), class: "btn btn-link"
+.row-fluid.no-space-fouth-child
+  - @teams.each do |team|
+    %a.span3.team-row{ href: team_path(team.id) }
+      %h4= team.name
+      %p= team.description
