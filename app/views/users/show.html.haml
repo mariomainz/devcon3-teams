@@ -42,12 +42,14 @@
       = will_paginate @user_posts, renderer: BootstrapPagination::Rails, param_name: :latest_posts, page_links: false
       
       .my_previous_statuses
-        %h5 Previous statuses:
-        - if @user.status
-          - head, *tail = @user.status.reverse
+        - if @user_stats.count > 1
+          %h5 Previous statuses:
+          - head, *tail = @user_stats
           - tail.each do |s|
             .span3.user_stat
               = s.content
-        - else
-          No Previous Status'... Please create one. 
+        - if @user_stats.count <= 1
+          %h5 Previous statuses:
+          %br= "No Previous Status'... Please create one. "
           %br= link_to "Create your first Status here", new_status_path
+      = will_paginate @user_stats, renderer: BootstrapPagination::Rails, param_name: :latest_stats, page_links: false
