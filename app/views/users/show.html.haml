@@ -21,10 +21,6 @@
         %td= @user.email
       - if current_user.id == @user.id
         %tr
-          %td{colspan: 3}      
-            .btn= link_to "Update Status", new_status_path
-            .btn= link_to "New Topic", new_topic_path
-        %tr
           %td{colspan: 3}
             .pull-right= link_to "edit profile", edit_user_path(@user.id)
 
