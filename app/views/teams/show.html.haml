@@ -2,40 +2,42 @@
 
 %h3= @team.name
 
-%h5="Members:"
 
-- @team.users.each do |user|
-  = link_to user_path(user.id) do
-    .user_card.pull-left
-      %img.placeholder{ src: Gravatar.new(user.email).image_url }
-      %br=user.full_name
-      %br=user.email
+.row-fluid
+
+  .span4
+    %h5="Members:"
+    - @team.users.each do |user|
+      = link_to user_path(user.id) do
+        .user_card.pull-left
+          %img.placeholder{ src: Gravatar.new(user.email).image_url }
+          %br=user.full_name
+          %br=user.email
     
-.clearfix
+  .span8
+    .tabbable.tabs-right
+      %ul.nav.nav-tabs#team_tab_options
+        %li.active
+          %a{href: "#topics", "data-toggle" => "tab"}
+            %span= "Recent Topics"
+        %li
+          %a{href: "#statuses", "data-toggle" => "tab"}
+            %span= "Recent Statuses"
+        %li
+          %a{href: "#repositories", "data-toggle" => "tab"}
+            %span= "Repositories"
 
-.tabbable
-  %ul.nav.nav-tabs#team_tab_options
-    %li.active
-      %a{href: "#topics", "data-toggle" => "tab"}
-        %span= "Recent Topics"
-    %li
-      %a{href: "#statuses", "data-toggle" => "tab"}
-        %span= "Recent Statuses"
-    %li
-      %a{href: "#repositories", "data-toggle" => "tab"}
-        %span= "Repositories"
+      .tab-content
+        .tab-pane.active#topics
+          = render @topics
 
-  .tab-content
-    .tab-pane.active#topics
-      = render @topics
+        .tab-pane#statuses
+          = render @statuses
 
-    .tab-pane#statuses
-      = render @statuses
-
-    .tab-pane#repositories
-      - @team.repositories.each do |repository|
-        %u
-          %li= repository.link
+        .tab-pane#repositories
+          - @team.repositories.each do |repository|
+            %u
+              %li= repository.link
 
 
 %br/
