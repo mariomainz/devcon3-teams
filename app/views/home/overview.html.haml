@@ -1,10 +1,12 @@
 .row-fluid
   .span6
+    = link_to 'New topic', new_topic_path, class: 'btn btn-primary overview-new-topic'
     %h4 Topics
     = render @topics
     = will_paginate @topics, renderer: BootstrapPagination::Rails, param_name: :topics_page, page_links: false
 
   .span6
+    = link_to 'Update status', new_status_path, class: 'btn btn-primary overview-new-status'
     %h4 Timeline
     = render @statuses
     = will_paginate @statuses, renderer: BootstrapPagination::Rails, param_name: :statuses_page, page_links: false
