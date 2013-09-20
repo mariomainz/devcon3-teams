@@ -1,7 +1,7 @@
-%ul#topic-list
-- @topics.each do |topic|
-  %li.topic-list-element= link_to topic.title, topic_path(topic.id)
-  = link_to 'edit', edit_topic_path(topic.id)
-  = topic.user_id
+/ %ul#topic-list
+/ - @topics.each do |topic|
+/   %li.topic-list-element= link_to topic.title, topic_path(topic.id)
+/   = link_to 'edit', edit_topic_path(topic.id)
+/   = topic.user_id
 
-
+= render @topics

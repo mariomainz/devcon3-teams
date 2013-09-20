@@ -1,13 +1,16 @@
 class ResponsesController < ApplicationController
   def create
-    Response.create(topic_id: topic_id, content: params[:response][:content])
-    redirect_to topic_url(id: topic_id), status: 301
+    topic.responses.create(content: params[:response][:content], user: user)
+    redirect_to topic_url(id: topic.id), status: 301
   end
 
   private
 
-  def topic_id
-    params[:topic_id]
+  def topic
+    Topic.find params[:topic_id]
   end
 
+  def user
+    User.find params[:response][:user_id]
+  end
 end
