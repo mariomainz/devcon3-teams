@@ -19,6 +19,7 @@ class TopicsController < ApplicationController
   end
 
   def create
+
     @topic = Topic.new(topic_params)
 
     respond_to do |format|
@@ -46,6 +47,6 @@ class TopicsController < ApplicationController
 
   private
     def topic_params
-      params.require(:topic).permit(:title, :content, :type, :user_id)
+      params.require(:topic).permit(:title, :content, :type, :user_id, :post_type)
     end
 end

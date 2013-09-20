@@ -1,9 +1,19 @@
-%div
-  %span.topic-title= link_to topic.title, topic_path(topic)
-  %br
-  %aside.topic-info
-    = 'created by '
-    = link_to topic.user.full_name, user_path(topic.user)
-    = time_ago_in_words(topic.created_at)
-    = 'ago'
-  %hr
+%div.topic-list-elements.row-fluid
+  %div.span2.topic-list-cell
+    %div.topic-left-cell
+      - if topic.post_type == "Discussion"
+        %i.icon-comments.icon-2x
+      - if topic.post_type == "Question"
+        %i.icon-question.icon-2x
+      - if topic.post_type == "Info"
+        %i.icon-info.icon-2x.center-icon
+      %aside.topic-info= "Responses: #{topic.responses.size}"
+  %div.span10.topic-list-cell
+    %span.topic-title= link_to topic.title, topic_path(topic)
+    %br
+    %aside.topic-info
+      = 'created by '
+      = link_to topic.user.full_name, user_path(topic.user)
+      = time_ago_in_words(topic.created_at)
+      = 'ago'
+%hr

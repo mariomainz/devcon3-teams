@@ -46,6 +46,6 @@ Status.create(
   user: bernhard
 )
 Status.create(
-  content: "Hven er jeg? Og hvor kommer verden fra?",
+  content: "Hvem er jeg? Og hvor kommer verden fra?",
   user: bernhard
 )
