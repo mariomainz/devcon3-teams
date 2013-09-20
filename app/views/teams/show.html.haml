@@ -1,12 +1,10 @@
-= link_to "\u2190 " + "Team Overview", teams_path
-
 %h3= @team.name
-
+%h5= 'Team description:'
+= @team.description
 
 .row-fluid
-
   .span5
-    %h5="Members:"
+    %h5='Members:'
     - @team.users.each do |user|
       = link_to user_path(user.id) do
         = render partial: '/users/user_card', :locals => { user: user }
@@ -27,16 +25,12 @@
       .tab-content
         .tab-pane.active#topics
           = render @topics
-
         .tab-pane#statuses
           = render @statuses
-
         .tab-pane#repositories
           - @team.repositories.each do |repository|
             %u
               %li= repository.link
 
-
-%br/
-%br/
-%a.btn.btn-danger{ href: "#" }= "Delete"
+%p
+  = link_to 'Delete team', team_path(@team), class: 'btn btn-danger', method: :delete, confirm: 'Are you sure?'
