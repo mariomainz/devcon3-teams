@@ -1,10 +1,10 @@
-%td.left-response-data
+%td.span2
   %img.timy-gravatar{ src: Gravatar.new(response.user.email).image_url }
   %p.post-author
     created by
   %p.post-author
     = link_to response.user.full_name, user_path(response.user)
-%td.right-response-data
+%td.span10
   %p.post-content= response.content
 
 

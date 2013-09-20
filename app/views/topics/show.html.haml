@@ -5,7 +5,7 @@
   %p.post-content= @topic.content
 %h2 Responses
 .responses
-  %table.hole-width
+  %table.hole-width.row-fluid
     - @responses.each do |response|
       %tr.response-box
         = render response
