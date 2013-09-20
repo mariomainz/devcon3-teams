@@ -1,4 +1,9 @@
 teams = FactoryGirl.create_list(:team, 5)
+ftplan = Team.create(
+  name: 'FT PLan',
+  description: 'We love it, when a PLAN comes together'
+)
+
 topics = FactoryGirl.build_list(:topic, (20..100).to_a.sample)
 statuses = FactoryGirl.build_list(:status, (20..100).to_a.sample)
 
@@ -22,3 +27,25 @@ end
 first_user = User.all.first
 first_user.email = 'george.best@whatever.com'
 first_user.save!
+
+bernhard = User.create(
+  first_name: 'Bernhard',
+  last_name: 'Stöcker',
+  email: 'stoecki@der-ball-ist-rund.net',
+  password: 'invision',
+  nick_name: 'Stöcki',
+  teams: [ftplan],
+  role: 'developer'
+)
+Status.create(
+  content: "FC!!! FC!!! FC!!!",
+  user: bernhard
+)
+Status.create(
+  content: "Why using Erlang? Because its great!!!",
+  user: bernhard
+)
+Status.create(
+  content: "Hven er jeg? Og hvor kommer verden fra?",
+  user: bernhard
+)
