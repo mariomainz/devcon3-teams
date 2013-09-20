@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :type %><br>
-    <%= f.text_field :type %>
+    <%= f.select :post_type, Topic.post_types %>
   </div>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="actions">

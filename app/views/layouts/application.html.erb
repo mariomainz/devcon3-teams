@@ -13,13 +13,13 @@
       <%= render 'layouts/user_header' %>
       <h3 class="muted"><%= link_to "Injixo Teams", root_path %></h3>
     </div>
-    <hr />
     <% if current_user && current_user.status.count > 0 %>
       <div class="span12 progress">    
         <% stat = current_user.status.last %>
           <%= stat.content %>
       </div>
     <% end %>
+    <hr />
     <%= yield %>
   </div>
 

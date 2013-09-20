@@ -1,52 +1,45 @@
 .row-fluid
   #user_profile.span3
-    %img.placeholder{ src: Gravatar.new(@user.email).image_url }
-
+    %img.placeholder{src: Gravatar.new(@user.email).image_url}
     %br
+
     %h1= @user.first_name
     %h1.last_name= @user.last_name
     %h5= @user.role
-    
     %hr
 
     %table
       %tr
-        %td.grey{:width => "60px"}= "From:"
+        %td.grey{width: '60px'}= 'From:'
         %td= @user.location
       %tr
-        %td.grey= "Joined:"
+        %td.grey= 'Joined:'
         %td= @user.created_at.to_formatted_s(:short)
       %tr
-        %td.grey= "Email:"
+        %td.grey= 'EMail:'
         %td= @user.email
       - if current_user.id == @user.id
         %tr
-          %td{colspan: 3}      
-            .btn= link_to "Update Status", new_status_path
-            .btn= link_to "New Topic", new_topic_path
-        %tr
           %td{colspan: 3}
-            .pull-right= link_to "edit profile", edit_user_path(@user.id)
+            = link_to 'Edit profile', edit_user_path(@user.id), class: 'btn btn-primary'
 
   #profile_content.span9
     .row-fluid 
-      %h5 My Latest Topics:
+      %h5 Member of:
+      %ul= render @user.teams
+      %h5 Latest posts:
       %table.table.table-striped.current_user_topics
         %tbody
         %th Title
         %th Created On
         - @user_posts.reverse.each do |p|
           %tr
-            %td{:width => "70%"}= link_to p.title, topic_path(p.id)
-            %td= link_to p.created_at.to_formatted_s(:long), topic_path(p.id)
+            %td{width: '70%'}= link_to p.title, topic_path(p.id)
+            %td= p.created_at.to_formatted_s(:long)
       
       .my_previous_statuses
-        %h5 My Previous Statuses:  
+        %h5 Previous statuses:  
         - head, *tail = @user.status.reverse
         - tail.each do |s|
           .span3.user_stat
             = s.content
-          
-	  
-
-    

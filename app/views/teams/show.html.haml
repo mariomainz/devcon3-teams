@@ -1,10 +1,8 @@
-= link_to "\u2190 " + "Team Overview", teams_path
-
 %h3= @team.name
-
+%h5= 'Team description:'
+= @team.description
 
 .row-fluid
-
   .span5
 
     - @team.users.each do |user|
@@ -45,7 +43,5 @@
               %u
                 %li= repository.link
 
-
-%br/
-%br/
-%a.btn.btn-danger{ href: "#" }= "Delete"
+%p
+  = link_to 'Delete team', team_path(@team), class: 'btn btn-danger', method: :delete, confirm: 'Are you sure?'
