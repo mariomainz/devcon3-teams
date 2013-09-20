@@ -6,35 +6,44 @@
 .row-fluid
 
   .span5
-    %h5="Members:"
+
     - @team.users.each do |user|
       = link_to user_path(user.id) do
         = render partial: '/users/user_card', :locals => { user: user }
+
+    .clearfix
+
+    = form_for @team, url: add_user_team_url(@team), as: :team, html: {class: 'form-horizontal'} do |f|
+      .input-append
+        = f.text_field :user_name, class: "span12", placeholder: "Add member...", data: { provide: "typeahead", items: 4, source: users_list.to_json }, autocomplete: "off"
+        %button.btn{ type: "button" }
+          %i.icon-plus
     
   .span7
-    .tabbable.tabs-right
-      %ul.nav.nav-tabs#team_tab_options
-        %li.active
-          %a{href: "#topics", "data-toggle" => "tab"}
-            %span= "Recent Topics"
-        %li
-          %a{href: "#statuses", "data-toggle" => "tab"}
-            %span= "Recent Statuses"
-        %li
-          %a{href: "#repositories", "data-toggle" => "tab"}
-            %span= "Repositories"
+    - unless @team.users.empty?
+      .tabbable.tabs-right
+        %ul.nav.nav-tabs#team_tab_options
+          %li.active
+            %a{href: "#topics", "data-toggle" => "tab"}
+              %span= "Recent Topics"
+          %li
+            %a{href: "#statuses", "data-toggle" => "tab"}
+              %span= "Recent Statuses"
+          %li
+            %a{href: "#repositories", "data-toggle" => "tab"}
+              %span= "Repositories"
 
-      .tab-content
-        .tab-pane.active#topics
-          = render @topics
+        .tab-content
+          .tab-pane.active#topics
+            = render @topics
 
-        .tab-pane#statuses
-          = render @statuses
+          .tab-pane#statuses
+            = render @statuses
 
-        .tab-pane#repositories
-          - @team.repositories.each do |repository|
-            %u
-              %li= repository.link
+          .tab-pane#repositories
+            - @team.repositories.each do |repository|
+              %u
+                %li= repository.link
 
 
 %br/

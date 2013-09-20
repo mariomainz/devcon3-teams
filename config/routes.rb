@@ -3,7 +3,11 @@ Devcon3Teams::Application.routes.draw do
   devise_for :users
 
   resources :users
-  resources :teams
+  resources :teams do
+    member do
+      patch 'add_user'
+    end
+  end
   resources :statuses
   resources :topics do
     resources :responses

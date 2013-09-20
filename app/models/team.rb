@@ -1,4 +1,7 @@
 class Team < ActiveRecord::Base
+
+  attr_accessor :user_name
+
   has_many :repositories
   has_and_belongs_to_many :users
 
