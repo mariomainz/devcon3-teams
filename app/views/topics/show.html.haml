@@ -1,6 +1,19 @@
+%p= link_to "Back to topics", topics_path
+
 %h1= "#{@topic.title}"
-.topic-content
-	"#{@topic.content}"
-	.responses
-		- @responses.each do |response|
-			%p= response.content
+.post-content
+  %p.post-content= @topic.content
+%h2 Responses
+.responses
+  - @responses.each do |response|
+    %p.post-content= response.content
+
+%h2 Enter a New Response
+= form_for :response, url: "/topics/#{@topic.id}/responses" do |f|
+  %p
+    = f.label :content
+    %br/
+    = f.text_area :content
+  %p
+    = f.submit value: "Send"
+

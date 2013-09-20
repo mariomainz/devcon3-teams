@@ -4,7 +4,7 @@
 
     %br
     %h1= @user.first_name
-    %h1= @user.last_name
+    %h1.last_name= @user.last_name
     %h5= @user.role
     
     %hr
@@ -15,17 +15,18 @@
         %td= @user.location
       %tr
         %td.grey= "Joined:"
-        %td= @user.created_at.to_formatted_s(:long)
+        %td= @user.created_at.to_formatted_s(:short)
       %tr
         %td.grey= "Email:"
         %td= @user.email
-      %tr
-        %td{colspan: 3}      
-          .btn= link_to "Update Status", new_status_path
-          .btn= link_to "New Topic", new_topic_path
-      %tr
-        %td{colspan: 3}
-          .pull-right= link_to "edit profile", edit_user_path(@user.id) if current_user.id == @user.id
+      - if current_user.id == @user.id
+        %tr
+          %td{colspan: 3}      
+            .btn= link_to "Update Status", new_status_path
+            .btn= link_to "New Topic", new_topic_path
+        %tr
+          %td{colspan: 3}
+            .pull-right= link_to "edit profile", edit_user_path(@user.id)
 
   #profile_content.span9
     .row-fluid 
