@@ -1,6 +1,6 @@
 teams = FactoryGirl.create_list(:team, 5)
-topics = FactoryGirl.create_list(:topic, (20..100).to_a.sample)
-statuses = FactoryGirl.create_list(:status, (20..100).to_a.sample)
+topics = FactoryGirl.build_list(:topic, (20..100).to_a.sample)
+statuses = FactoryGirl.build_list(:status, (20..100).to_a.sample)
 
 teams.each do |team|
   users = FactoryGirl.create_list(:user, (1..5).to_a.sample,
