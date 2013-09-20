@@ -1,3 +1,4 @@
+$greycolor: #9C9D9D;
 $injixocolor: #059898;
 
 .no-space-fouth-child [class*="span"]:nth-child(4n + 1) {
@@ -7,8 +8,24 @@ $injixocolor: #059898;
 a.team-row {
   margin-bottom: 15px;
   background: $injixocolor;
-  height: 90px;
+  height: 150px;
   text-decoration: none;
   padding: 15px;
   color: white;
+}
+
+#team_tab_options
+{
+  li {
+    text-align: center;
+    a {
+      color: $greycolor;
+    }
+  }
+  .active {
+    a {
+      color: black;
+      span { font-weight: bold; }
+    }
+  }
 }
