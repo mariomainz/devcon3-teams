@@ -1,5 +1,11 @@
-.row-fluid.no-space-fouth-child
-  - @teams.each do |team|
-    %a.span3.team-row{ href: team_path(team.id) }
-      %h4= team.name
-      %p= team.description
+%h3= "Team Overview"
+
+- @teams.each do |team|
+  = link_to team_path(team.id) do
+    .user_card.pull-left{style: "width: 250px; height: 240px"}
+      .row-fluid
+        .span4
+          %span.icon-group.icon-4x
+        .span8
+          %h4= team.name
+          %p= team.description
