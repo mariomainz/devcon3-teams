@@ -14,6 +14,7 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    @topic = Topic.find(params[:id])
   end
   
   def create
@@ -44,6 +45,6 @@ class TopicsController < ApplicationController
   
   private
     def topic_params
-      params.require(:topic).permit(:title, :content, :type)
+      params.require(:topic).permit(:title, :content, :type, :user_id)
     end
 end

@@ -1,3 +1,5 @@
 %ul
 - @topics.each do |topic|
-  %li= topic.title
+  %li= link_to topic.title, topic_path(topic.id)
+  = link_to 'edit', edit_topic_path(topic.id)
+  = topic.user_id
