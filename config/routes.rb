@@ -1,5 +1,5 @@
 Devcon3Teams::Application.routes.draw do
-  root 'users#index'
+  root 'home#overview'
   devise_for :users
 
   resources :users
