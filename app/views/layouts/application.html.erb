@@ -17,9 +17,7 @@
     <% if current_user && current_user.status.count > 0 %>
       <div class="span12 progress">    
         <% stat = current_user.status.last %>
-        <div class="latest_stat bar">
           <%= stat.content %>
-        </div>
       </div>
     <% end %>
     <%= yield %>
