@@ -15,7 +15,7 @@
     </div>
     <% if current_user && current_user.status.count > 0 %>
       <div class="span12 progress">    
-        <% stat = current_user.status.last %>
+        <% stat = current_user.status.first %>
           <div class='pull-left'> <%= stat.content %> </div>
           <div class='pull-right hide_show'> 
             <%= link_to 'edit', edit_status_path(stat.id) %>

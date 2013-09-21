@@ -11,6 +11,8 @@
       = f.label :content, "Description"
       = f.text_area :content, class: "span4 topic-input", row: 3
       = f.hidden_field :user_id, :value => current_user.id
+      = f.label :type
+      = f.select :post_type, Topic.post_types
 
     .modal-footer
       %button.btn.btn-link{ type: "button", "data-dismiss" => "modal" }= "Cancel"

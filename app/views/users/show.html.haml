@@ -19,10 +19,11 @@
         %td.grey= 'Email:'
         %td= @user.email
       %tr
-        %td.grey= 'Team(s):'
+        %td.team-list.grey= 'Team(s):'
         %td
-          - @user.teams.each do |t|
-            = link_to t.name, team_path(t.id)
+          %ul.unordered-list
+            - @user.teams.each do |t|
+              %li= link_to t.name, team_path(t.id)
       - if current_user.id == @user.id
         %tr
           %td{colspan: 3}
@@ -42,7 +43,7 @@
         %tbody
         %th Title
         %th Created On
-        - @user_posts.reverse.each do |p|
+        - @user_posts.each do |p|
           %tr
             %td{width: '70%'}= link_to p.title, topic_path(p.id)
             %td= p.created_at.to_formatted_s(:long)
