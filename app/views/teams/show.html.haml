@@ -1,6 +1,5 @@
 %h3= @team.name
-%h5= 'Team description:'
-= @team.description
+%p{style: "margin-bottom: 40px;"}= @team.description
 
 .row-fluid
   .span5
@@ -11,12 +10,11 @@
 
     .clearfix
 
-    = form_for @team, url: add_user_team_url(@team), as: :team, html: {class: 'form-horizontal'} do |f|
+    = form_for @team, url: add_user_team_url(@team), as: :team, html: {class: 'form-horizontal add_user_form'} do |f|
       .input-append
-        = f.text_field :user_name, class: "span12", placeholder: "Add member...", data: { provide: "typeahead", items: 4, source: users_list.to_json }, autocomplete: "off"
-        %button.btn{ type: "button" }
+        = f.text_field :user_name, class: "span12", placeholder: "Add member...", data: { provide: "typeahead", items: 4, source: users_list(@team.users).to_json }, autocomplete: "off"
+        %button.btn#submit_team{ type: "button" }
           %i.icon-plus
-    = link_to 'Delete team', team_path(@team), class: 'btn btn-danger', method: :delete, confirm: 'Are you sure?'
     
   .span7
     - unless @team.users.empty?
@@ -43,3 +41,6 @@
             - @team.repositories.each do |repository|
               %u
                 %li= repository.link
+
+%p
+  = link_to 'Delete team', team_path(@team), class: 'btn btn-danger', method: :delete, confirm: 'Are you sure?'
