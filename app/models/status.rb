@@ -3,6 +3,9 @@ class Status < ActiveRecord::Base
 
   validates_length_of :content, :maximum => 255
 
-  default_scope order('updated_at DESC')
   scope :recent, -> { order('updated_at DESC') }
+
+  def self.default_scope
+    recent
+  end
 end
