@@ -3,20 +3,24 @@ Devcon3Teams::Application.routes.draw do
   devise_for :users
 
   resources :users
+  resources :statuses
+  resources :repositories, only: [:new, :create, :destroy]
+
   resources :teams do
     member do
       patch 'add_user'
     end
   end
-  resources :statuses
+
   resources :topics do
     resources :responses
   end
+
   resources :repositories, only: [:new, :create]
   
-  get "/user/:id"               => "users#show",    as: :show_user
   get 'overview'                => 'home#overview'
-  get "/topics/search/:search"  => "topics#index",  as: :search_topics
+  get '/user/:id'               => 'users#show',    as: :show_user
+  get '/topics/search/:search'  => 'topics#index',  as: :search_topics
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
