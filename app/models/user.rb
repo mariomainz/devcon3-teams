@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :email
-  validates_presence_of :password
+  validates_presence_of :password, on: :create
 
   has_many :topics
   has_many :responses

@@ -3,17 +3,19 @@ Devcon3Teams::Application.routes.draw do
   devise_for :users
 
   resources :users
+  resources :statuses
+  resources :repositories, only: [:new, :create, :destroy]
+
   resources :teams do
     member do
       patch 'add_user'
     end
   end
-  resources :statuses
+
   resources :topics do
     resources :responses
   end
-  resources :repositories, only: [:new, :create]
-  
+
   get "/user/:id" => "users#show",  as: :show_user
   get 'overview' => 'home#overview'
 
