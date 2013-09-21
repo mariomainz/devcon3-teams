@@ -12,6 +12,7 @@ class StatusesController < ApplicationController
   end
 
   def edit
+    @status = Status.find(params[:id])
   end
   
   def create
@@ -29,6 +30,8 @@ class StatusesController < ApplicationController
   end
   
   def update
+    @status = Status.find(params[:id])
+    
     respond_to do |format|
       if @status.update(status_params)
         format.html { redirect_to @status, notice: 'Status was successfully updated.' }
