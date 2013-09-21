@@ -10,12 +10,4 @@ class Topic < Post
   def self.post_types
     POST_TYPES
   end
-  
-  def self.search(query)
-    if query
-      find(:all, :conditions => ['title LIKE ?', "% #{query} %"] )
-    else
-      find(:all)
-    end
-  end
 end
