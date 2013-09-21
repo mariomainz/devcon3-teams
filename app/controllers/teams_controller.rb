@@ -7,7 +7,8 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find(params[:id])
-    @team.update_attributes!(params[:team])
+    @team.update_attributes!(team_params)
+    redirect_to team_path(@team.id)
   end
   
   def index
@@ -32,6 +33,7 @@ class TeamsController < ApplicationController
   def delete
     @team = Team.find(params[:id])
     @team.destroy
+    redirect_to teams_path
   end
 
   private
