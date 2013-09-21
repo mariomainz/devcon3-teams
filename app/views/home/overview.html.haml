@@ -1,5 +1,6 @@
 .row-fluid
   .span6
+    .pull-right.search= render partial: 'topics/search'
     = link_to 'New topic', new_topic_path, class: 'btn btn-primary overview-new-topic'
     %h4 Topics
     = render @topics
