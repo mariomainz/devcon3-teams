@@ -2,7 +2,11 @@ class TopicsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @topics = Topic.all.paginate(:page => params[:topics], :per_page => 10)
+    if params[:search]
+      search(params[:search])
+    else
+      @topics = Topic.all.paginate(:page => params[:topics], :per_page => 10)
+    end
   end
 
   def show
@@ -43,6 +47,10 @@ class TopicsController < ApplicationController
         format.json { render json: @topic.errors, topic: :unprocessable_entity }
       end
     end
+  end
+  
+  def search(s)
+    @topics = Topic.where('title LIKE ?', "%#{s}%")
   end
 
   private
