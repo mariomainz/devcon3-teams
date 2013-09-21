@@ -31,7 +31,7 @@
       .span12
         - if @user.status.count > 0
           .span2 Latest status: 
-          - stat = @user.status.last
+          - stat = @user.status.first
           .latest_stat= stat.content
           
           
@@ -41,8 +41,10 @@
         %th Title
         %th Created On
         - @user_posts.each do |p|
+          - post_link = topic_path(p.id) if p.type == 'Topic'
+          - post_link = topic_path(p.topic.id) if p.type == 'Response'
           %tr
-            %td{width: '70%'}= link_to p.title, topic_path(p.id)
+            %td{width: '70%'}= link_to p.title, post_link
             %td= p.created_at.to_formatted_s(:long)
       = will_paginate @user_posts, renderer: BootstrapPagination::Rails, param_name: :latest_posts, page_links: false
       
