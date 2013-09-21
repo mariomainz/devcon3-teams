@@ -16,6 +16,7 @@
         = f.text_field :user_name, class: "span12", placeholder: "Add member...", data: { provide: "typeahead", items: 4, source: users_list.to_json }, autocomplete: "off"
         %button.btn{ type: "button" }
           %i.icon-plus
+    = link_to 'Delete team', team_path(@team), class: 'btn btn-danger', method: :delete, confirm: 'Are you sure?'
     
   .span7
     - unless @team.users.empty?
@@ -42,6 +43,3 @@
             - @team.repositories.each do |repository|
               %u
                 %li= repository.link
-
-%p
-  = link_to 'Delete team', team_path(@team), class: 'btn btn-danger', method: :delete, confirm: 'Are you sure?'
