@@ -4,8 +4,10 @@
   %i.icon-plus
   = "Create Topic"
 
-%h3= "Topics"  
-= render @topics
+.row-fluid
+  .span6
+    %h3= "Topics"  
+    = render @topics
 
 = render 'new'
 
