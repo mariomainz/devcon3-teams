@@ -3,8 +3,6 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(
       Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true
     )
-    x = markdown.render(text).html_safe
-    debugger
-    x
+    markdown.render(text).html_safe
   end
 end
