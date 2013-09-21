@@ -37,7 +37,10 @@
 
         .tab-content
           .tab-pane.active#topics
-            = render @topics
+            - unless @topics.empty?
+              = render @topics
+            - else
+              .announcement= "No topics available from team members"
 
           .tab-pane#statuses
             = render @statuses
