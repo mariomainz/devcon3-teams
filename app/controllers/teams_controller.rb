@@ -21,6 +21,12 @@ class TeamsController < ApplicationController
   end
 
   def add_user
+    team = Team.find(params[:id])
+    email = params[:team][:user_name].split.last
+    user = User.find_by_email(email)
+    team.users << user
+    team.save!
+    redirect_to team_path(team.id)
   end
 
   def delete
