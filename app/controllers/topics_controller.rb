@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @topics = Topic.all
+    @topics = Topic.all.paginate(:page => params[:topics], :per_page => 10)
   end
 
   def show
