@@ -1,8 +1,67 @@
-teams = FactoryGirl.create_list(:team, 5)
 ftplan = Team.create(
   name: 'FT PLan',
-  description: 'We love it, when a PLAN comes together'
-)
+  description: 'We love it, when a PLAN comes together')
+
+ftforecast = Team.create(
+  name: 'FT Forecast',
+  description: 'Forecasting and stuff.')
+
+bernhard = User.create(
+  first_name: 'Bernhard',
+  last_name: 'Stöcker',
+  email: 'stoecki@der-ball-ist-rund.net',
+  password: 'invision',
+  nick_name: 'Stöcki',
+  teams: [ftplan],
+  role: 'Developer')
+
+ayleen = User.create(
+  first_name: 'Ayleen',
+  last_name: 'McCann',
+  email: 'ayleen.mccann@injixo.com',
+  password: 'invision',
+  nick_name: 'Aylz',
+  teams: [ftplan],
+  role: 'Developer')
+
+cana = User.create(
+  first_name: 'Cana',
+  last_name: 'Hatake',
+  email: 'mc_cann-a@email.ulster.ac.uk',
+  password: 'invision',
+  nick_name: 'CH',
+  teams: [ftplan],
+  role: 'Developer')
+
+mario = User.create(
+  first_name: 'Mario',
+  last_name: 'Mainz',
+  email: 'mario.mainz@invision.de',
+  password: 'invision',
+  teams: [ftforecast],
+  role: 'developer')
+
+Status.create(
+  content: ":P",
+  user: cana)
+
+Status.create(
+  content: "Hello :D",
+  user: ayleen)
+
+Status.create(
+  content: "FC!!! FC!!! FC!!!",
+  user: bernhard)
+
+Status.create(
+  content: "Why using Erlang? Because its great!!!",
+  user: bernhard)
+
+Status.create(
+  content: "Hvem er jeg? Og hvor kommer verden fra?",
+  user: bernhard)
+
+teams = FactoryGirl.create_list(:team, 5)
 
 topics = FactoryGirl.build_list(:topic, (20..100).to_a.sample)
 statuses = FactoryGirl.build_list(:status, (20..100).to_a.sample)
@@ -27,56 +86,3 @@ end
 first_user = User.all.first
 first_user.email = 'george.best@whatever.com'
 first_user.save!
-
-bernhard = User.create(
-  first_name: 'Bernhard',
-  last_name: 'Stöcker',
-  email: 'stoecki@der-ball-ist-rund.net',
-  password: 'invision',
-  nick_name: 'Stöcki',
-  teams: [ftplan],
-  role: 'developer'
-)
-
-ayleen = User.create(
-  first_name: 'Ayleen',
-  last_name: 'McCann',
-  email: 'ayleen.mccann@injixo.com',
-  password: 'invision',
-  nick_name: 'Aylz',
-  teams: [ftplan],
-  role: 'developer'
-)
-
-cana = User.create(
-  first_name: 'Cana',
-  last_name: 'Hatake',
-  email: 'mc_cann-a@email.ulster.ac.uk',
-  password: 'invision',
-  nick_name: 'CH',
-  teams: [ftplan],
-  role: 'developer'
-)
-
-Status.create(
-  content: ":P",
-  user: cana
-)
-
-Status.create(
-  content: "Hello :D",
-  user: ayleen
-)
-
-Status.create(
-  content: "FC!!! FC!!! FC!!!",
-  user: bernhard
-)
-Status.create(
-  content: "Why using Erlang? Because its great!!!",
-  user: bernhard
-)
-Status.create(
-  content: "Hvem er jeg? Og hvor kommer verden fra?",
-  user: bernhard
-)
