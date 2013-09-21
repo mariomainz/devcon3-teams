@@ -1,10 +1,10 @@
 %div.topic-list-elements.row-fluid
   %div.span1.topic-list-cell
-    %div.topic-left-cell
+    %div.topic-left-cell.center-icon
       - if topic.post_type == "Discussion"
-        %i.icon-comments.icon-2x
+        %i.icon-comments.icon-2x.center-icon
       - if topic.post_type == "Question"
-        %i.icon-question.icon-2x
+        %i.icon-question.icon-2x.center-icon
       - if topic.post_type == "Info"
         %i.icon-info.icon-2x.center-icon
   %div.span2.responses
