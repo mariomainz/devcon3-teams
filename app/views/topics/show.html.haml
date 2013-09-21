@@ -12,7 +12,10 @@
       = time_ago_in_words(@topic.created_at) + " ago"
 
   %td.right-response-data.table-alignment-top
-    %p.post-content= @topic.content
+    / %p.post-content= @topic.content
+    / = Redcarpet::Markdown.new(@topic.content).to_html
+    = markdown(@topic.content)
+    
 
 %h2 Responses
 .responses

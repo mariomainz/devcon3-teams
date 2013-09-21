@@ -7,6 +7,7 @@
   %p.post-author
     = time_ago_in_words(response.created_at) + " ago"
 %td.right-response-data.table-alignment-top
-  %p.post-content= response.content
+  / %p.post-content= response.content
+  = markdown(response.content)
 
 
