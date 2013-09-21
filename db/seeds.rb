@@ -37,6 +37,37 @@ bernhard = User.create(
   teams: [ftplan],
   role: 'developer'
 )
+
+ayleen = User.create(
+  first_name: 'Ayleen',
+  last_name: 'McCann',
+  email: 'ayleen.mccann@injixo.com',
+  password: 'invision',
+  nick_name: 'Aylz',
+  teams: [ftplan],
+  role: 'developer'
+)
+
+cana = User.create(
+  first_name: 'Cana',
+  last_name: 'Hatake',
+  email: 'mc_cann-a@email.ulster.ac.uk',
+  password: 'invision',
+  nick_name: 'CH',
+  teams: [ftplan],
+  role: 'developer'
+)
+
+Status.create(
+  content: ":P",
+  user: cana
+)
+
+Status.create(
+  content: "Hello :D",
+  user: ayleen
+)
+
 Status.create(
   content: "FC!!! FC!!! FC!!!",
   user: bernhard
